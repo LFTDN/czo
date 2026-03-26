@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Показники роботи — КП «ЦЗО»</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script></head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-brand">
+      <img src="https://czo.od.gov.ua/wp-content/uploads/2021/10/cropped-123.png" alt="КП ЦЗО" class="header-logo">
+      <div class="header-title">
+        <small>Одеська обласна рада</small>
+        Комунальне підприємство «Централізована закупівельна організація»
+      </div>
+    </div>
+  </div>
+  <div class="header-nav-wrap">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%">
+      <ul class="nav-menu" id="mainNav">
+        <li ><a href="index.html">Головна</a></li>
+        <li class="active" >
+          <a href="#">Про ЦЗО <span class="nav-caret">▾</span></a>
+          <ul class="sub-menu">
+            <li><a href="структура-та-керівництво.html">Структура та керівництво</a></li>
+<li><a href="показники-роботи.html">Показники роботи</a></li>
+<li><a href="вакансії.html">Вакансії</a></li>
+<li><a href="повідом-про-корупцію.html">Повідом про корупцію</a></li>
+          </ul>
+        </li>
+        <li >
+          <a href="#">Замовнику <span class="nav-caret">▾</span></a>
+          <ul class="sub-menu">
+            <li><a href="визначення-очікуваної-вартості.html">Визначення очікуваної вартості</a></li>
+<li><a href="передати-закупівлі-цзо.html">Передати закупівлі ЦЗО</a></li>
+          </ul>
+        </li>
+        <li ><a href="послуги-кп-цзо.html">Послуги</a></li>
+        <li >
+          <a href="#">Документи <span class="nav-caret">▾</span></a>
+          <ul class="sub-menu">
+            <li><a href="documents.html">Звіти та документи</a></li>
+          </ul>
+        </li>
+        <li ><a href="контакти.html">Контакти</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:8px">
+        <form class="nav-search">
+          <input type="search" placeholder="Шукати...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        <button class="burger" id="burgerBtn" onclick="toggleMobile()">
+          <i class="fas fa-bars" id="burgerIcon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html">Головна</a></li>
+      <li><a href="структура-та-керівництво.html">— Структура та керівництво</a></li>
+      <li><a href="показники-роботи.html">— Показники роботи</a></li>
+      <li><a href="вакансії.html">— Вакансії</a></li>
+      <li><a href="повідом-про-корупцію.html">— Повідом про корупцію</a></li>
+      <li><a href="визначення-очікуваної-вартості.html">— Визначення очікуваної вартості</a></li>
+      <li><a href="передати-закупівлі-цзо.html">— Передати закупівлі ЦЗО</a></li>
+      <li><a href="послуги-кп-цзо.html">Послуги</a></li>
+      <li><a href="documents.html">Документи</a></li>
+      <li><a href="контакти.html">Контакти</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="badge">Статистика</div>
+    <h1>Показники роботи КП «ЦЗО»</h1>
+    <p>Результати діяльності Централізованої закупівельної організації Одеської обласної ради.</p>
+    <div class="hero-divider"></div>
+  </div>
+</div>
+
+
+<!-- ГРАФІКИ -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+
+      <!-- Кількість процедур по роках -->
+      <div class="chart-wrap fade-up">
+        <div class="section-label">Динаміка</div>
+        <div class="chart-title">Кількість процедур закупівель</div>
+        <div class="chart-sub">За роками діяльності КП «ЦЗО»</div>
+        <canvas id="chartProcedures" height="240"></canvas>
+      </div>
+
+      <!-- Кількість укладених договорів -->
+      <div class="chart-wrap fade-up">
+        <div class="section-label">Динаміка</div>
+        <div class="chart-title">Кількість укладених договорів</div>
+        <div class="chart-sub">За роками діяльності КП «ЦЗО»</div>
+        <canvas id="chartContracts" height="240"></canvas>
+      </div>
+
+    </div>
+
+    <div class="two-col" style="margin-top:32px">
+
+      <!-- Очікувана вартість vs сума договорів -->
+      <div class="chart-wrap fade-up">
+        <div class="section-label">Фінанси</div>
+        <div class="chart-title">Очікувана вартість та сума договорів</div>
+        <div class="chart-sub">млн грн за роками</div>
+        <canvas id="chartValues" height="240"></canvas>
+      </div>
+
+      <!-- Економія коштів -->
+      <div class="chart-wrap fade-up">
+        <div class="section-label">Ефективність</div>
+        <div class="chart-title">Загальний обсяг економії коштів</div>
+        <div class="chart-sub">млн грн за успішно проведеними закупівлями</div>
+        <canvas id="chartSavings" height="240"></canvas>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Контакти</h4>
+        <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>65012, Одеська область, м. Одеса,<br>Приморський р-н, вул. Канатна, 83</span></div>
+        <div class="footer-contact"><i class="fas fa-phone"></i><a href="tel:+380965447392">+380 96 544 73 92</a></div>
+        <div class="footer-contact"><i class="fas fa-envelope"></i><span>czo.odessa@gmail.com</span></div>
+      </div>
+      <div class="footer-col">
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="структура-та-керівництво.html">Структура та керівництво</a></li>
+          <li><a href="послуги-кп-цзо.html">Послуги</a></li>
+          <li><a href="показники-роботи.html">Показники роботи</a></li>
+          <li><a href="documents.html">Документи</a></li>
+          <li><a href="контакти.html">Контакти</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Замовнику</h4>
+        <ul>
+          <li><a href="визначення-очікуваної-вартості.html">Визначення очікуваної вартості</a></li>
+          <li><a href="передати-закупівлі-цзо.html">Передати закупівлі ЦЗО</a></li>
+          <li><a href="вакансії.html">Вакансії</a></li>
+          <li><a href="повідом-про-корупцію.html">Повідом про корупцію</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 КП «Централізована закупівельна організація Одеської обласної ради»</p>
+      <p><a href="https://oblrada.odessa.gov.ua/" target="_blank" style="color:rgba(255,255,255,.35);transition:color .2s" onmouseover="this.style.color='#E2C97E'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Одеська обласна рада</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script>
+const NAVY = '#012B5A', GOLD = '#C8A84B', BLUE = '#1a6fa8', GREEN = '#2e7d32';
+const chartOpts = (label, color) => ({
+  type: 'bar',
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.parsed.y} ${label}` } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: 'rgba(1,43,90,0.06)' }, ticks: { font: { family: 'Montserrat', size: 11 }, color: '#6b7280' } },
+      x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 12, weight: '600' }, color: '#012B5A' } }
+    }
+  }
+});
+
+// Chart 1 — Кількість процедур
+const c1 = chartOpts('процедур', NAVY);
+c1.data = {
+  labels: ['2021', '2022', '2023', '2024', '2025'],
+  datasets: [{ label: 'Процедури', data: [37, 83, 115, 226, 172],
+    backgroundColor: ['rgba(1,43,90,.45)','rgba(1,43,90,.55)','rgba(1,43,90,.65)','rgba(1,43,90,.8)','#012B5A'],
+    borderRadius: 6, borderSkipped: false }]
+};
+new Chart(document.getElementById('chartProcedures').getContext('2d'), c1);
+
+// Chart 2 — Кількість договорів
+const c2 = chartOpts('договорів', GOLD);
+c2.data = {
+  labels: ['2021', '2022', '2023', '2024', '2025'],
+  datasets: [{ label: 'Договори', data: [13, 52, 83, 140, 159],
+    backgroundColor: ['rgba(200,168,75,.4)','rgba(200,168,75,.55)','rgba(200,168,75,.7)','rgba(200,168,75,.85)','#C8A84B'],
+    borderRadius: 6, borderSkipped: false }]
+};
+new Chart(document.getElementById('chartContracts').getContext('2d'), c2);
+
+// Chart 3 — Вартість vs Договори (grouped)
+new Chart(document.getElementById('chartValues').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: ['2021', '2022', '2023', '2024', '2025'],
+    datasets: [
+      { label: 'Очікувана вартість', data: [43.7, 225.1, 139.1, 236.5, 265],
+        backgroundColor: 'rgba(1,43,90,0.7)', borderRadius: 4, borderSkipped: false },
+      { label: 'Сума договорів', data: [35, 104.9, 100.3, 180, 221.25],
+        backgroundColor: 'rgba(200,168,75,0.8)', borderRadius: 4, borderSkipped: false }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: true, position: 'bottom', labels: { font: { family: 'Montserrat', size: 11 }, boxWidth: 14, padding: 12 } },
+      tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.y} млн грн` } }
+    },
+    scales: {
+      y: { beginAtZero: true, grid: { color: 'rgba(1,43,90,0.06)' }, ticks: { font: { family: 'Montserrat', size: 11 }, color: '#6b7280', callback: v => v + ' млн' } },
+      x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 12, weight: '600' }, color: '#012B5A' } }
+    }
+  }
+});
+
+// Chart 4 — Економія
+new Chart(document.getElementById('chartSavings').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: ['2021', '2022', '2023', '2024', '2025'],
+    datasets: [{ label: 'Економія', data: [8.7, 10.2, 12.4, 23.4, 28.05],
+      backgroundColor: ['rgba(46,125,50,.45)','rgba(46,125,50,.55)','rgba(46,125,50,.65)','rgba(46,125,50,.8)','#2e7d32'],
+      borderRadius: 6, borderSkipped: false }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.parsed.y} млн грн` } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: 'rgba(1,43,90,0.06)' }, ticks: { font: { family: 'Montserrat', size: 11 }, color: '#6b7280', callback: v => v + ' млн' } },
+      x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 12, weight: '600' }, color: '#012B5A' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
